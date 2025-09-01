@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Baecke</title>
+</head>
+<body>
+    <h2>Questionário de Balcke</h2>
+    <h3>Preencha o formulário para saber seu Score</h3>
+    <form method="POST" autocomplete="off">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

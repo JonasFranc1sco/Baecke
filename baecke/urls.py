@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from questionnarie.views import showForm, success
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', showForm, name='showForm'),
+    path('success/', success, name='success')
 ]
