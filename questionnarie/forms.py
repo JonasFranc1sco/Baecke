@@ -10,8 +10,3 @@ class QuestionForm(forms.Form):
     class Meta:
         model = Question
         fields = ['name', 'category']
-        
-class ChoiceForm(forms.Form):
-    class Meta:
-        model = Choice
-        fields = ['name', 'question', 'value']
