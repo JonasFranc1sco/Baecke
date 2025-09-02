@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Baecke</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 </head>
 <body>
-    <h2>Questionário de Balcke</h2>
-    <h3>Preencha o formulário para saber seu Score</h3>
-    <form method="POST" autocomplete="off">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit</button>
-    </form>
+    <h2 class="title">Questionário de Balcke</h2>
+    <h3 class="subtitle">Preencha o formulário para saber seu Score</h3>
+    <div class="form-container">
+        <form class="form" method="POST" autocomplete="off">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
 </body>
 </html>

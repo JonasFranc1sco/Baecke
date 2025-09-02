@@ -1,0 +1,16 @@
+body {
+    background-color: #5c2483;
+}
+
+.title, h3 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: aliceblue;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
