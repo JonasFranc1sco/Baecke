@@ -60,15 +60,16 @@ class Question (models.Model):
     def AFO(self):
         totalAFO = (
             #Falta questão 1
-            (self.question_2) +
-            (self.question_3) +
-            (self.question_4) +
-            (self.question_5) +
-            (self.question_6) +
-            (self.question_7) +
-            (self.question_8)
-            / 8
-        )
+            self.question_2 +
+            self.question_3 +
+            self.question_4 +
+            self.question_5 +
+            self.question_6 +
+            self.question_7 +
+            self.question_8
+        ) / 8
+            
+        
         
         # Montar cálculo        
 
@@ -78,11 +79,10 @@ class Question (models.Model):
     def ELF(self):
         totalELF = (
             # Falta questão 9
-            (self.question_10) +
-            (self.question_11) +
-            (self.question_12)
-            / 4
-        )
+            self.question_10 +
+            self.question_11 +
+            self.question_12
+        ) / 4
         
         # Montar cálculo
         
@@ -91,12 +91,12 @@ class Question (models.Model):
 # Cálculo questões categoria ALL
     def ALL(self):
         totalALL = (
-            (6 - (self.question_13)) +
-            (self.question_14) +
-            (self.question_15)
-            # Falta questão 14
-            /4
-        )
+            (6 - self.question_13) +
+            self.question_14 +
+            self.question_15
+            # Falta questão 16
+        ) /4
+        
 
         # Montar cálculo
         

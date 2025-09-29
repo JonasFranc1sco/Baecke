@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Baecke</title>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- MUITO IMPORTANTE -->
+  <title>Baecke</title>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 </head>
 <body>
     <h2 class="title">Questionário de Balcke</h2>
@@ -12,8 +13,22 @@
     <div class="form-container">
         <form class="form" method="POST" autocomplete="off">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Enviar</button>
+            
+            {% for field in form %}
+                <div class="question-block">
+                    <p class="question-label">{{ field.label }}</p>
+                    <ul class="options-list">
+                        {% for radio in field %}
+                            <li>
+                                {{ radio.tag }}
+                                <label for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
+
+            <button type="submit" class="submit-btn">Enviar</button>
         </form>
     </div>
 </body>

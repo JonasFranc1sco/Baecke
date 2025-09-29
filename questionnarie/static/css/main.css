@@ -1,16 +1,179 @@
+/* Estilo geral do body */
 body {
-    background-color: #5c2483;
-}
-
-.title, h3 {
-    text-align: center;
+    background-color: #141414; /* fundo escuro */
     font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    color: aliceblue;
+    margin: 0;
+    padding: 20px;
+    color: #fff;
 }
 
+/* Títulos */
+.title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+/* Container do formulário */
 .form-container {
     display: flex;
     justify-content: center;
-    align-items: center;
 }
+
+.form {
+    max-width: 700px;
+    width: 100%;
+}
+
+/* Cada questão */
+.question-block {
+    margin-bottom: 70px;
+}
+
+.question-label {
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: large;
+}
+
+/* ===========================
+   Radios touch-friendly (mobile-first ready)
+   =========================== */
+
+.form .options-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+  gap: 14px;
+  flex-wrap: wrap; /* garante quebra quando necessário */
+}
+
+/* li centraliza o conteúdo e mantém posição para pseudo-elements */
+.form .options-list li {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  min-width: 80px;
+}
+
+/* escondendo o input mantendo acessibilidade (alto specificity) */
+.form .options-list input[type="radio"] {
+  position: absolute !important;
+  opacity: 0 !important;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+  border: 0;
+}
+
+/* label: área de clique maior */
+.form .options-list label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #fff;
+  font-size: 0.88rem;
+  padding: 10px;
+  width: 120px;
+  min-height: 68px;
+  text-align: center;
+  box-sizing: border-box;
+  transition: transform .12s ease;
+}
+
+/* CÍRCULO padrão (cobre ambos os casos: input + label ou input dentro do label) */
+.form .options-list input[type="radio"] + label::before,
+.form .options-list label::before {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #202020;
+  margin-bottom: 8px;
+  transition: all .14s ease;
+  border: 3px solid transparent;
+  box-sizing: border-box;
+}
+
+/* estado selecionado — cobre 3 cenários (input + label, label:has, e fallback .is-checked) */
+.form .options-list input[type="radio"]:checked + label::before,
+.form .options-list label:has(input[type="radio"]:checked)::before,
+.form .options-list label.is-checked::before {
+  background: #4CAF50;
+  border-color: #fff;
+  transform: scale(1.03);
+}
+
+.form .options-list input[type="radio"]:checked + label,
+.form .options-list label:has(input[type="radio"]:checked),
+.form .options-list label.is-checked {
+  font-weight: 700;
+}
+
+/* foco acessível */
+.form .options-list input[type="radio"]:focus + label::before,
+.form .options-list label:has(input[type="radio"]:focus)::before,
+.form .options-list label:focus-within::before {
+  box-shadow: 0 0 0 8px rgba(76,175,80,0.08);
+}
+
+/* Botão */
+.submit-btn {
+    display: block;
+    margin: 40px auto 0;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+/* Responsividade - telas médias -> aumentar um pouco */
+@media (max-width: 900px) {
+  .form .options-list label { width: 140px; min-height: 74px; font-size: 0.95rem; }
+  .form .options-list input[type="radio"] + label::before,
+  .form .options-list label::before { width: 65px; height: 65px; margin-bottom: 10px; border-width: 3px; }
+  .question-block { margin-bottom: 40px; } /* aproxima as questões no mobile */
+}
+
+/* Responsividade - celulares pequenos */
+@media (max-width: 480px) {
+  .form { padding: 0 12px; } /* espaço nas laterais */
+  .form .options-list { gap: 16px; justify-content: center; }
+  .form .options-list label { width: 110px; font-size: 1rem; min-height: 78px; padding: 12px; }
+  .form .options-list input[type="radio"] + label::before,
+  .form .options-list label::before { width: 64px; height: 64px; margin-bottom: 12px; border-width: 3px; }
+  .question-block { margin-bottom: 30px; }
+}
+
+/* garantia de box-sizing consistente */
+.form .options-list input[type="radio"] + label::before,
+.form .options-list label::before { box-sizing: border-box; }
+
