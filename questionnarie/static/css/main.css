@@ -36,7 +36,7 @@ body {
 
 /* Cada questão */
 .question-block {
-    margin-bottom: 70px;
+    margin-bottom: 60px;
 }
 
 .question-label {
@@ -159,7 +159,7 @@ body {
 @media (max-width: 900px) {
   .form .options-list label { width: 140px; min-height: 74px; font-size: 0.95rem; }
   .form .options-list input[type="radio"] + label::before,
-  .form .options-list label::before { width: 65px; height: 65px; margin-bottom: 10px; border-width: 3px; }
+  .form .options-list label::before { width: 50px; height: 50px; margin-bottom: 10px; border-width: 3px; }
   .question-block { margin-bottom: 40px; } /* aproxima as questões no mobile */
 }
 
@@ -167,9 +167,9 @@ body {
 @media (max-width: 480px) {
   .form { padding: 0 12px; } /* espaço nas laterais */
   .form .options-list { gap: 16px; justify-content: center; }
-  .form .options-list label { width: 110px; font-size: 1rem; min-height: 78px; padding: 12px; }
+  .form .options-list label { width: 110px; font-size: 0.9rem; min-height: 78px; padding: 12px; }
   .form .options-list input[type="radio"] + label::before,
-  .form .options-list label::before { width: 64px; height: 64px; margin-bottom: 12px; border-width: 3px; }
+  .form .options-list label::before { width: 47px; height: 47px; margin-bottom: 12px; border-width: 3px; }
   .question-block { margin-bottom: 30px; }
 }
 

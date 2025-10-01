@@ -8,7 +8,9 @@ class Profile (models.Model):
     weight = models.FloatField()
 
 class Question (models.Model):
-    # Models Choices
+    
+    
+    # Models choices para cada questão
     QUESTION_VALUES = [
         (1, "Nunca"),
         (2, "Raramente"),
@@ -40,20 +42,24 @@ class Question (models.Model):
         (2, "Mais leve"),
         (1, "Muito mais leve"),
     ]
-    question_2 = models.IntegerField(choices=QUESTION_VALUES, verbose_name="No trabalho, eu fico sentado:")
-    question_3 = models.IntegerField(choices=QUESTION_VALUES, verbose_name="No trabalho, eu fico em pé")
-    question_4 = models.IntegerField(choices=QUESTION_VALUES, verbose_name="No trabalho, eu ando:")
-    question_5 = models.IntegerField(choices=QUESTION_VALUES, verbose_name="No trabalho, eu levanto objetos pesados:")
-    question_6 = models.IntegerField(choices=QUESTION_VALUES_REVERSE, verbose_name="Depois do trabalho, eu me sinto cansado:")
-    question_7 = models.IntegerField(choices=QUESTION_VALUES_REVERSE, verbose_name="No trabalho, eu suo:")
-    question_8 = models.IntegerField(choices=QUESTION_VALUES_WEIGHT, verbose_name="Em comparação com o trabalho de outras pessoas da minha idade, o meu trabalho é fisicamente:")
+    
+    
+    
+    # Questões de Baecke ordenadas, sem precisar serem criadas no Admin
+    question_2 = models.IntegerField(choices=QUESTION_VALUES, verbose_name="2. No trabalho, eu fico sentado:")
+    question_3 = models.IntegerField(choices=QUESTION_VALUES, verbose_name="3. No trabalho, eu fico em pé")
+    question_4 = models.IntegerField(choices=QUESTION_VALUES, verbose_name="4. No trabalho, eu ando:")
+    question_5 = models.IntegerField(choices=QUESTION_VALUES, verbose_name="5. No trabalho, eu levanto objetos pesados:")
+    question_6 = models.IntegerField(choices=QUESTION_VALUES_REVERSE, verbose_name="6. Depois do trabalho, eu me sinto cansado:")
+    question_7 = models.IntegerField(choices=QUESTION_VALUES_REVERSE, verbose_name="7. No trabalho, eu suo:")
+    question_8 = models.IntegerField(choices=QUESTION_VALUES_WEIGHT, verbose_name="8. Em comparação com o trabalho de outras pessoas da minha idade, o meu trabalho é fisicamente:")
 # Falta questão 9 (Ela está em aberto)
-    question_10 = models.IntegerField(choices=QUESTION_VALUES_EQUAL, verbose_name="Em comparação com outras pessoas da minha idade, minha atividade física durante os momentos de lazer é:")
-    question_11 = models.IntegerField(choices=QUESTION_VALUES_REVERSE, verbose_name="Durante os momentos de lazer eu suo:")
-    question_12 = models.IntegerField(choices=QUESTION_VALUES, verbose_name="Durante os momentos de lazer, eu pratico atividades físicas:")
-    question_13 = models.IntegerField(choices=QUESTION_VALUES, verbose_name="Durante os momentos de lazer, eu assisto televisão:")
-    question_14 = models.IntegerField(choices=QUESTION_VALUES, verbose_name="Durante os momentos de lazer, eu ando:")
-    question_15 = models.IntegerField(choices=QUESTION_VALUES, verbose_name="Durante os momentos de lazer, eu ando de bicicleta:")
+    question_10 = models.IntegerField(choices=QUESTION_VALUES_EQUAL, verbose_name="10. Em comparação com outras pessoas da minha idade, minha atividade física durante os momentos de lazer é:")
+    question_11 = models.IntegerField(choices=QUESTION_VALUES_REVERSE, verbose_name="11. Durante os momentos de lazer eu suo:")
+    question_12 = models.IntegerField(choices=QUESTION_VALUES, verbose_name="12. Durante os momentos de lazer, eu pratico atividades físicas:")
+    question_13 = models.IntegerField(choices=QUESTION_VALUES, verbose_name="13. Durante os momentos de lazer, eu assisto televisão:")
+    question_14 = models.IntegerField(choices=QUESTION_VALUES, verbose_name="14. Durante os momentos de lazer, eu ando:")
+    question_15 = models.IntegerField(choices=QUESTION_VALUES, verbose_name="15. Durante os momentos de lazer, eu ando de bicicleta:")
 # Falta questão 16 (Ela está em aberto)
  
 # Cálculo questões categoria AFO    
